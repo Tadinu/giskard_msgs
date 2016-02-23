@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>giskard_msgs</name>
   <version>0.1.0</version>
 
@@ -7,6 +7,7 @@
   </description>
 
   <author email="blandc@cs.uni-bremen.de">Mihai Pomarlan</author>
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
   <maintainer email="blandc@cs.uni-bremen.de">Mihai Pomarlan</maintainer>
   <license>BSD</license>
 
@@ -16,10 +17,9 @@
 
   <buildtool_depend>catkin</buildtool_depend> 
 
-  <build_depend>message_generation</build_depend>
-  <build_depend>std_msgs</build_depend>
- 
-  <run_depend>message_runtime</run_depend>
-  <run_depend>std_msgs</run_depend>
+  <depend>message_generation</depend>
+  <depend>message_runtime</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
 
 </package>
