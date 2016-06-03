@@ -1,0 +1,2 @@
+geometry_msgs/PoseStamped left_ee_goal
+geometry_msgs/PoseStamped right_ee_goal

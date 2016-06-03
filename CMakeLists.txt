@@ -7,11 +7,13 @@ endif()
 
 set(MSG_DEPS
   std_msgs
+  geometry_msgs
 )
 
 set(MSG_FILES
   Dummy.msg
   Finished.msg
+  WholeBodyPositionGoal.msg
 )
 
 set(SRV_FILES
