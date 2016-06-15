@@ -14,6 +14,8 @@ set(MSG_FILES
   Dummy.msg
   Finished.msg
   WholeBodyPositionGoal.msg
+  SemanticFloat64.msg
+  ControllerFeedback.msg
 )
 
 set(SRV_FILES
