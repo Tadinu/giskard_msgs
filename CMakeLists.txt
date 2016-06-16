@@ -13,7 +13,7 @@ set(MSG_DEPS
 set(MSG_FILES
   Dummy.msg
   Finished.msg
-  WholeBodyPositionGoal.msg
+  WholeBodyCommand.msg
   SemanticFloat64.msg
   ControllerFeedback.msg
 )
