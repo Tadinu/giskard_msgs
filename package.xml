@@ -3,7 +3,7 @@
   <version>0.1.0</version>
 
   <description>
-    Some auxiliary messages for giskardcontroller nodes.
+    Some auxiliary messages for giskard controller nodes.
   </description>
 
   <author email="blandc@cs.uni-bremen.de">Mihai Pomarlan</author>
@@ -11,14 +11,12 @@
   <maintainer email="blandc@cs.uni-bremen.de">Mihai Pomarlan</maintainer>
   <license>BSD</license>
 
-  <url type="website">http://open-ease.org</url>
-  <url type="bugtracker">https://github.com/mpomarlan/pizzaninja/issues</url>
-  <url type="repository">https://github.com/mpomarlan/pizzaninja</url>
-
   <buildtool_depend>catkin</buildtool_depend> 
 
   <depend>message_generation</depend>
   <depend>message_runtime</depend>
+  <depend>actionlib</depend>
+  <depend>actionlib_msgs</depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
 
