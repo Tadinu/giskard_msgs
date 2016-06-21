@@ -16,7 +16,9 @@ set(MSG_FILES
   Finished.msg
   WholeBodyCommand.msg
   WholeBodyState.msg
+  SemanticArmCommand.msg
   SemanticFloat64.msg
+  SemanticWholeBodyCommand.msg
   ControllerFeedback.msg
 )
 
