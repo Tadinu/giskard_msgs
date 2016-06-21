@@ -1,5 +1,5 @@
 # goal
-giskard_msgs/SemanticWholeBodyCommand command
+giskard_msgs/WholeBodyCommand command
 ---
 # result
 giskard_msgs/WholeBodyState state

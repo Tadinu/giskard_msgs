@@ -12,13 +12,12 @@ set(MSG_DEPS
 )
 
 set(MSG_FILES
+  ArmCommand.msg
   Dummy.msg
   Finished.msg
   WholeBodyCommand.msg
   WholeBodyState.msg
-  SemanticArmCommand.msg
   SemanticFloat64.msg
-  SemanticWholeBodyCommand.msg
   ControllerFeedback.msg
 )
 
