@@ -6,3 +6,5 @@ std_msgs/Header header
 giskard_msgs/SemanticFloat64[] commands
 # Slack values of task functions, expressed with semantics hints.
 giskard_msgs/SemanticFloat64[] slacks
+# Internal double expressions wired through for debugging or monitoring
+giskard_msgs/SemanticFloat64[] doubles
