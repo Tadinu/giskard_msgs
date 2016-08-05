@@ -18,6 +18,7 @@ set(MSG_FILES
   WholeBodyCommand.msg
   WholeBodyState.msg
   SemanticFloat64.msg
+  SemanticVector3.msg
   ControllerFeedback.msg
 )
 

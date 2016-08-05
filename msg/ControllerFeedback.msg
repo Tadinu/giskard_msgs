@@ -8,3 +8,5 @@ giskard_msgs/SemanticFloat64[] commands
 giskard_msgs/SemanticFloat64[] slacks
 # Internal double expressions wired through for debugging or monitoring
 giskard_msgs/SemanticFloat64[] doubles
+# Internal vector expressions wired through for debugging or monitoring
+giskard_msgs/SemanticVector3[] vectors
