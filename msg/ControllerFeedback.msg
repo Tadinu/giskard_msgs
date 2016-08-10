@@ -10,3 +10,8 @@ giskard_msgs/SemanticFloat64[] slacks
 giskard_msgs/SemanticFloat64[] doubles
 # Internal vector expressions wired through for debugging or monitoring
 giskard_msgs/SemanticVector3[] vectors
+
+# Command that the controller is currently pursuing
+giskard_msgs/WholeBodyCommand current_command
+# Hash of the current command calculated by the controller
+uint64 current_command_hash
