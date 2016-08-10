@@ -4,3 +4,4 @@
 
 giskard_msgs/ArmCommand right_ee
 giskard_msgs/ArmCommand left_ee
+giskard_msgs/SemanticFloat64[] convergence_thresholds
