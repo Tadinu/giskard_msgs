@@ -2,13 +2,17 @@
 
 # Header to communicate timestamps, and being compatible with message-filters.
 std_msgs/Header header
+# Flag to indicate whether the watchdog is active
+bool watchdog_active
 # Commands issued to motor controllers, expressed with semantics hints.
 giskard_msgs/SemanticFloat64[] commands
 # Slack values of task functions, expressed with semantics hints.
 giskard_msgs/SemanticFloat64[] slacks
-# Internal double expressions wired through for debugging or monitoring
+# Internal double expressions used to decide convergence
+giskard_msgs/SemanticFloat64[] convergence_features
+# Internal double expressions wired through for debugging
 giskard_msgs/SemanticFloat64[] doubles
-# Internal vector expressions wired through for debugging or monitoring
+# Internal vector expressions wired through for debugging
 giskard_msgs/SemanticVector3[] vectors
 
 # Command that the controller is currently pursuing

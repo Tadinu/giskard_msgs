@@ -11,11 +11,10 @@ uint8 type
 
 # Cartesian goal for the arm.
 # Note: The header will be used to resolve goal using tf.
-geometry_msgs/PoseStamped goal
+geometry_msgs/PoseStamped goal_pose
 
 # Joint goal for the arm.
 float64[] goal_configuration
 
-# A flag to activate processing of this command.
-# If this FALSE, the rest of this command will be ignored.
-bool process # TO BE DEPRECATED, SOON
+# List of internal double expressions with thresholds to decide convergence
+giskard_msgs/SemanticFloat64[] convergence_thresholds
