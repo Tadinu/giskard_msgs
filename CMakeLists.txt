@@ -17,6 +17,7 @@ set(MSG_FILES
   Finished.msg
   WholeBodyCommand.msg
   WholeBodyState.msg
+  SemanticBool.msg
   SemanticFloat64.msg
   SemanticFloat64Array.msg
   SemanticVector3.msg
