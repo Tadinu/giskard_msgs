@@ -13,18 +13,23 @@ set(MSG_DEPS
 
 set(MSG_FILES
   ArmCommand.msg
+  Constraint.msg
+  ControllerFeedback.msg
   Dummy.msg
   Finished.msg
-  WholeBodyCommand.msg
-  WholeBodyState.msg
+  MotionPhase.msg
   SemanticBool.msg
   SemanticFloat64.msg
   SemanticFloat64Array.msg
   SemanticVector3.msg
-  ControllerFeedback.msg
-)
+  Task.msg
+  TaskObject.msg
+  WholeBodyCommand.msg
+  WholeBodyState.msg
+ )
 
 set(SRV_FILES
+  QueryMotion.srv
   SetEnable.srv
 )
 
