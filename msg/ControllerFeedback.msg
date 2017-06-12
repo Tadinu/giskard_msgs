@@ -5,7 +5,7 @@ std_msgs/Header header
 # Flag to indicate whether the watchdog is active
 bool watchdog_active
 # Commands issued to motor controllers, expressed with semantics hints.
-giskard_msgs/SemanticFloat64[] commands
+sensor_msgs/JointState commands
 # Slack values of task functions, expressed with semantics hints.
 giskard_msgs/SemanticFloat64[] slacks
 # Internal double expressions used to decide convergence

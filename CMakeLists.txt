@@ -9,6 +9,7 @@ set(MSG_DEPS
   std_msgs
   geometry_msgs
   actionlib_msgs
+  sensor_msgs
 )
 
 set(MSG_FILES
