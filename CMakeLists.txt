@@ -16,6 +16,7 @@ set(MSG_FILES
   ArmCommand.msg
   Constraint.msg
   ControllerFeedback.msg
+  Controller.msg
   Dummy.msg
   Finished.msg
   MotionPhase.msg
@@ -35,6 +36,7 @@ set(SRV_FILES
 )
 
 set(ACT_FILES
+  ControllerList.action
   WholeBody.action
 )
 
