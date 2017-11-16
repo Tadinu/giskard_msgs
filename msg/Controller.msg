@@ -1,7 +1,7 @@
 # definitions of possible values to use as type
 uint8 UNDEFINED=0
 uint8 JOINT=1
-uint8 TRANSFORM_6D=1
+uint8 TRANSFORM_6D=2
 
 # use of the above constants to indicate the type of controller
 uint8 type
