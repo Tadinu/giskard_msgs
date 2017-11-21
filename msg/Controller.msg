@@ -6,8 +6,10 @@ uint8 TRANSFORM_6D=2
 # use of the above constants to indicate the type of controller
 uint8 type
 
+# Name of the link that is at the start of the controlled kinematic chain
+string root_link
+
 # Name of the link that is at the end of the controlled kinematic chain
-# NOTE: the root_link is implicitly assumed to be known by the recipient of this message
 string tip_link 
 
 # Proportional gain used by the controller
