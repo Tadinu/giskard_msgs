@@ -11,6 +11,7 @@ set(MSG_DEPS
   actionlib_msgs
   sensor_msgs
   trajectory_msgs
+  shape_msgs
 )
 
 set(MSG_FILES
@@ -31,6 +32,7 @@ set(MSG_FILES
   TaskObject.msg
   WholeBodyCommand.msg
   WholeBodyState.msg
+  WorldBody.msg
  )
 
 set(SRV_FILES
