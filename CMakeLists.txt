@@ -10,16 +10,20 @@ set(MSG_DEPS
   geometry_msgs
   actionlib_msgs
   sensor_msgs
+  trajectory_msgs
+  shape_msgs
 )
 
 set(MSG_FILES
   ArmCommand.msg
+  CollisionEntry.msg
   Constraint.msg
   ControllerFeedback.msg
   Controller.msg
   Dummy.msg
   Finished.msg
   MotionPhase.msg
+  MoveCmd.msg
   SemanticBool.msg
   SemanticFloat64.msg
   SemanticFloat64Array.msg
@@ -28,6 +32,7 @@ set(MSG_FILES
   TaskObject.msg
   WholeBodyCommand.msg
   WholeBodyState.msg
+  WorldBody.msg
  )
 
 set(SRV_FILES
@@ -37,6 +42,7 @@ set(SRV_FILES
 
 set(ACT_FILES
   ControllerList.action
+  Move.action
   WholeBody.action
 )
 
