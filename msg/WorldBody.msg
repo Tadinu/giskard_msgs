@@ -23,6 +23,8 @@ bool rigidly_attached
 string parent_body_name
 # Name of the link to which this body shall be connected.
 string parent_link_name
+# Name of the link of this body that shall be connected to an existing link in the world.
+string child_link_name
 
 # Only used if type==PRIMITIVE_BODY, otherwise ignored.
 shape_msgs/SolidPrimitive shape
