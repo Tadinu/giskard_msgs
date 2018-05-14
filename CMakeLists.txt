@@ -38,6 +38,7 @@ set(MSG_FILES
 set(SRV_FILES
   QueryMotion.srv
   SetEnable.srv
+  UpdateWorld.srv
 )
 
 set(ACT_FILES
