@@ -5,6 +5,9 @@ uint8 ALLOW_COLLISION=1
 # use one of the above constants as collision type
 uint8 type
 
+# enforced minimum distance between the closest points on both surfaces
+float64 min_dist
+
 # name of body A, i.e. the first body in the described collision
 string body_a
 # optional: link of the particular link on body A
