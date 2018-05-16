@@ -13,19 +13,6 @@ uint8 type
 # Note: needs to be unique. If the name is already taken, an error will be returned
 string name
 
-# Pose of the body in the world. TF will be used to resolve the header information.
-geometry_msgs/PoseStamped pose
-
-# Flag that specifies whether this body is rigidly attached to an existing link
-bool rigidly_attached
-# Only used if rigidly_attached==True, otherwise ignored.
-# Name of the body that holds the link to which this body shall be connected.
-string parent_body_name
-# Name of the link to which this body shall be connected.
-string parent_link_name
-# Name of the link of this body that shall be connected to an existing link in the world.
-string child_link_name
-
 # Only used if type==PRIMITIVE_BODY, otherwise ignored.
 shape_msgs/SolidPrimitive shape
 

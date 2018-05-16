@@ -24,6 +24,15 @@ uint8 operation
 
 # Description of the body that shall be added to/removed from/altered within the world.
 giskard_msgs/WorldBody body
+
+# Flag that specifies whether the body shall be rigidly attached to an existing 
+# link of the robot
+bool rigidly_attached
+
+# Pose of the body in the world. TF will be used to resolve the header information.
+# Note: If the body shall be rigidly attached to the robot, then the frame_id from 
+# the header of this PoseStampled must be the name of a link of the robot. 
+geometry_msgs/PoseStamped pose
 ---
 # Response
 
