@@ -1,6 +1,8 @@
 # definitions of possible collision types to use for value
 uint8 AVOID_COLLISION=0
 uint8 ALLOW_COLLISION=1
+uint8 AVOID_ALL_COLLISIONS=2
+uint8 ALLOW_ALL_COLLISIONS=3
 
 # use one of the above constants as collision type
 uint8 type
@@ -8,16 +10,12 @@ uint8 type
 # enforced minimum distance between the closest points on both surfaces
 float64 min_dist
 
-# name of body A, i.e. the first body in the described collision
-string body_a
-# optional: link of the particular link on body A
-# note: only works if body A is a multibody with a link with that name
-# note: if left empty, the entire body A is selected
-string link_a
+# link of the controlled robot, if left empty all links will be selected
+string robot_link
 
-# name of body B, i.e. the second body in the described collision
-string body_b
-# optional: link of the particular link on body B
-## note: only works if body B is a multibody with a link with that name
-# note: if left empty, the entire body B is selected
-string link_b
+# name of the external body, i.e. the second body in the described collision, can also be the robot
+string external_body
+# optional: link of the particular link on external_body
+## note: only works if external_body is a multibody with a link with that name
+# note: if left empty, the entire external_body is selected
+string external_body_link
