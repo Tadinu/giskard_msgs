@@ -7,6 +7,9 @@ uint8 ROTATION_3D=3
 # use of the above constants to indicate the type of controller
 uint8 type
 
+# the maximum amount of time the trajectory is allowed to take
+float32 max_trajectory_length
+
 # Name of the link that is at the start of the controlled kinematic chain
 string root_link
 
@@ -19,11 +22,11 @@ float64 p_gain
 # Weight assigned to the controller within the cost-function solved in each cycle
 float64 weight
 
-# Active/deactive thresholding of error used in the control law
-bool enable_error_threshold
-
-# Actual thresholding value used to limit the instantaneous error in the control law
-float64 threshold_value
+# Maximum speed
+# m/s if type==TRANSLATION_3D
+# rad/s if type==ROTATION_3D
+# min(max_speed, joint_velocity_limit_specified_in_urdf) if type==JOINT
+float64 max_speed
 
 # controller goal, interpretation depends on value in type field
 # JOINT: ignores this field
