@@ -22,6 +22,7 @@ uint8 SOLVER_TIMEOUT=5
 uint8 INTERRUPTED=6
 uint8 MAX_NWSR_REACHED=7 # increasing NWSR might fix this
 uint8 QP_SOLVER_ERROR=8
+uint8 UNKNOWN_OBJECT=9
 
 # error codes for the overall action goal
 uint8 error_code
