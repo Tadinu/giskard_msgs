@@ -1,6 +1,3 @@
-# the maximum amount of time the trajectory is allowed to take
-float32 max_trajectory_length
-
 # Set of controllers that need to converge for this command to finish
 giskard_msgs/Controller[] controllers
 
