@@ -7,9 +7,6 @@ uint8 ROTATION_3D=3
 # use of the above constants to indicate the type of controller
 uint8 type
 
-# the maximum amount of time the trajectory is allowed to take
-float32 max_trajectory_length
-
 # Name of the link that is at the start of the controlled kinematic chain
 string root_link
 
