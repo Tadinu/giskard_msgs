@@ -46,6 +46,7 @@ uint8 CORRUPT_URDF_ERROR=5
 uint8 TF_ERROR=6
 uint8 MISSING_LINK_ERROR=7
 uint8 INVALID_OPERATION=8
+uint8 UNSUPPORTED_OPTIONS=9
 
 # errors that occured during the service
 uint8 error_codes
