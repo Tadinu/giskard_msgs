@@ -23,6 +23,7 @@ uint8 INTERRUPTED=6
 uint8 MAX_NWSR_REACHED=7 # increasing NWSR might fix this
 uint8 QP_SOLVER_ERROR=8
 uint8 UNKNOWN_OBJECT=9
+uint8 SYMENGINE_ERROR=10
 
 # error codes for the overall action goal
 uint8 error_code
