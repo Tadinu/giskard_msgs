@@ -3,6 +3,7 @@ uint8 AVOID_COLLISION=0
 uint8 ALLOW_COLLISION=1
 uint8 AVOID_ALL_COLLISIONS=2
 uint8 ALLOW_ALL_COLLISIONS=3
+string ALL=
 
 # use one of the above constants as collision type
 uint8 type
