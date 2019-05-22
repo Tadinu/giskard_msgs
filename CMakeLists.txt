@@ -17,6 +17,8 @@ set(MSG_DEPS
 set(MSG_FILES
   CollisionEntry.msg
   Constraint.msg
+  JointConstraint.msg
+  CartesianConstraint.msg
   Controller.msg
   WorldBody.msg
   MoveCmd.msg
