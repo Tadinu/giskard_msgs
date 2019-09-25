@@ -2,7 +2,7 @@
 string UNDEFINED=
 string TRANSLATION_3D=CartesianPosition
 string ROTATION_3D=CartesianOrientationSlerp
-string TRANSLATION_3D_LINE=
+string POSE_6D=CartesianPose
 
 # use of the above constants to indicate the type of controller
 string type
