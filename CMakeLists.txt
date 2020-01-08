@@ -26,6 +26,10 @@ set(MSG_FILES
 
 set(SRV_FILES
   UpdateWorld.srv
+  GetObjectNames.srv
+  GetObjectInfo.srv
+  UpdateRvizMarkers.srv
+  GetAttachedObjects.srv
 )
 
 set(ACT_FILES
