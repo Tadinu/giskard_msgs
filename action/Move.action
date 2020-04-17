@@ -4,12 +4,13 @@
 uint8 UNDEFINED=0
 uint8 PLAN_AND_EXECUTE=1
 uint8 PLAN_ONLY=2
+uint8 CHECK_REACHABILITY=3
 
 # use one of the above constants to indicate the goal type
 uint8 type
 
 # sequence of movement commands to execute
-giskard_msgs/MoveCmd[] cmd_seq
+giskard_msgs/MoveCmd[] cmd_seq  
 ---
 # result
 # definition of possible error code values
