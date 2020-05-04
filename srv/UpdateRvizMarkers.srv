@@ -1,0 +1,9 @@
+string[] object_names
+
+---
+
+uint8 SUCCESS=0
+uint8 NAME_NOT_FOUND_ERROR=1
+uint8 MARKER_CONVERSION_ERROR=2
+
+uint8 error_codes
