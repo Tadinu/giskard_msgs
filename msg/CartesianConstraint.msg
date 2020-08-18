@@ -1,6 +1,7 @@
 # definitions of possible values to use as type
 string UNDEFINED=
 string TRANSLATION_3D=CartesianPosition
+string STRAIGHT_TRANSLATION_3D=CartesianPositionStraight
 string ROTATION_3D=CartesianOrientationSlerp
 string POSE_6D=CartesianPose
 
@@ -11,7 +12,7 @@ string type
 string root_link
 
 # Name of the link that is at the end of the controlled kinematic chain
-string tip_link 
+string tip_link
 
 # controller goal, interpretation depends on value in type field
 # TRANSLATION_3D: desired translation of tip_link relative to root_link
