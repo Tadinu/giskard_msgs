@@ -1,36 +1,54 @@
 # goal
 
 # definitions of possible values to use as type
-uint8 UNDEFINED=0
-uint8 PLAN_AND_EXECUTE=1
-uint8 PLAN_ONLY=2
-uint8 CHECK_REACHABILITY=3
+int64 UNDEFINED=0
+int64 PLAN_ONLY=1
+int64 CHECK_REACHABILITY=2
+# int64 EXECUTE=4
+int64 PLAN_AND_EXECUTE=5
+# int64 SKIP_FAILURES=8
+int64 PLAN_AND_EXECUTE_AND_SKIP_FAILURES=13
 
 # use one of the above constants to indicate the goal type
-uint8 type
+int64 type
 
 # sequence of movement commands to execute
 giskard_msgs/MoveCmd[] cmd_seq  
 ---
 # result
+
 # definition of possible error code values
-uint8 SUCCESS=0
-uint8 INSOLVABLE=1 # usually means that giskard thinks that the robot is out of joint limits
-uint8 PATH_COLLISION=2 # not implemented
-uint8 START_STATE_COLLISION=3 # not implemented
-uint8 END_STATE_COLLISION=4 # not implemented
-uint8 SOLVER_TIMEOUT=5 # not implemented
-uint8 INTERRUPTED=6 # goal got cancled via action server interface
-uint8 MAX_NWSR_REACHED=7 # increasing NWSR might fix this
-uint8 QP_SOLVER_ERROR=8 # delete your robot folger in giskardpy/data and try again
-uint8 UNKNOWN_OBJECT=9
-uint8 SYMENGINE_ERROR=10
-uint8 UNREACHABLE=11
+int64 SUCCESS=0
+int64 ERROR=1 # if no code fits
 
-# error codes for the overall action goal
-uint8 error_code
+# solver exceptions
+int64 QP_SOLVER_ERROR=10 # if no solver code fits
+int64 MAX_NWSR_REACHED=11 # increasing NWSR in config file might fix this
+int64 OUT_OF_JOINT_LIMITS=12
+int64 HARD_CONSTRAINTS_VIOLATED=13 # conflicting hard constraints, probably because of collision avoidance
 
-string error_message
+# world state exceptions
+int64 WORLD_ERROR=20 # if no world error fits
+int64 UNKNOWN_OBJECT=21
+
+# error during motion problem building phase
+int64 CONSTRAINT_ERROR=30 # if no constraint code fits
+int64 UNKNOWN_CONSTRAINT=31
+int64 CONSTRAINT_INITIALIZATION_ERROR=32
+
+# errors during planning
+int64 PLANNING_ERROR=40 # if no planning code fits
+int64 SHAKING=41 # Planning was stopped because the trajectory contains a shaky velocity profile. Detection parameters can be tuned in config file
+int64 UNREACHABLE=42 # if reachability check fails
+
+# errors during execution
+int64 EXECUTION_ERROR=50 # if no execution code fits
+int64 PREEMPTED=51 # goal got cancled via action server interface
+
+# error codes and messages for each command
+int64[] error_codes
+
+string[] error_messages
 
 # planned trajectory
 trajectory_msgs/JointTrajectory trajectory
@@ -38,13 +56,12 @@ trajectory_msgs/JointTrajectory trajectory
 # feedback
 
 # definitions of possible action phases
-uint8 UNDEFINED=0
-uint8 INIT_KINEMATIC_CHAIN=1 # not implemented
-uint8 PLANNING=2
-uint8 EXECUTION=3
+int64 UNDEFINED=0
+int64 PLANNING=1
+int64 EXECUTION=2
 
-# action phase that the server currently pursues
-uint8 phase
+# cmd that is currenlty being planned
+int64 cmd_id
 
 # value between 0.0 and 1.0 to report progress 
 # only published during phases EXECUTION
