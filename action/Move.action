@@ -35,6 +35,7 @@ int64 UNKNOWN_OBJECT=21
 int64 CONSTRAINT_ERROR=30 # if no constraint code fits
 int64 UNKNOWN_CONSTRAINT=31
 int64 CONSTRAINT_INITIALIZATION_ERROR=32
+int64 INVALID_GOAL=33
 
 # errors during planning
 int64 PLANNING_ERROR=40 # if no planning code fits
