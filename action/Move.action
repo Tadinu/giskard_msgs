@@ -1,13 +1,15 @@
 # goal
 
 # definitions of possible values to use as type
+# the following types can be added to create new combinations. e.g. PLAN_AND_EXECUTE = PLAN_ONLY + EXECUTE
 int64 UNDEFINED=0
-int64 PLAN_ONLY=1
-int64 CHECK_REACHABILITY=2 # don't use
-int64 EXECUTE=4 # don't use
-int64 SKIP_FAILURES=8 # don't use
-int64 CUT_OFF_SHAKING=16 # don't use
+int64 PLAN_ONLY=1 
+int64 CHECK_REACHABILITY=2 # don't use on its own! Different planning parameters that speed up planning but don't create nice trajectories, don't use with execute!
+int64 EXECUTE=4 # don't use on its own! Result gets send to the robot
+int64 SKIP_FAILURES=8 # don't use on its own! If there are multiple move commands, failures are skipped.
+int64 CUT_OFF_SHAKING=16 # don't use on its own! If endless shaking is detected, the size of the detection window is cut off from the trajectory and it is executed anyway
 
+# predefined combinations
 int64 PLAN_AND_CHECK_REACHABILITY=3
 int64 PLAN_AND_EXECUTE=5
 int64 PLAN_AND_SKIP_FAILURES=9
