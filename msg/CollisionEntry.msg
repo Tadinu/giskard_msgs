@@ -5,7 +5,8 @@ uint8 AVOID_ALL_COLLISIONS=2
 uint8 ALLOW_ALL_COLLISIONS=3
 uint8 ATTRACT=4
 uint8 REPELL=5
-string ALL= # this means empty string
+# this means empty string
+string ALL= 
 
 # use one of the above constants as collision type
 uint8 type
