@@ -26,6 +26,10 @@ uint8 DETACH=5
 # Type of operation that shall be performed on the world representation
 uint8 operation
 
+# If the request didn't get accepted during this time, it will be rejected and BUSY is returned.
+# This will happen if Giskard is planning/executing, while the service is being called.
+float64 timeout
+
 # Description of the body that shall be added to/removed from/altered within the world.
 giskard_msgs/WorldBody body
 
@@ -42,15 +46,17 @@ geometry_msgs/PoseStamped pose
 
 # constants to use as error codes
 uint8 SUCCESS=0
-uint8 MISSING_BODY_ERROR=1
-uint8 DUPLICATE_BODY_ERROR=2
-uint8 CORRUPT_SHAPE_ERROR=3
-uint8 CORRUPT_MESH_ERROR=4
-uint8 CORRUPT_URDF_ERROR=5
-uint8 TF_ERROR=6
-uint8 MISSING_LINK_ERROR=7
-uint8 INVALID_OPERATION=8
-uint8 UNSUPPORTED_OPTIONS=9
+uint8 ERROR=1
+uint8 MISSING_BODY_ERROR=10
+uint8 DUPLICATE_BODY_ERROR=11
+uint8 CORRUPT_SHAPE_ERROR=12
+uint8 CORRUPT_MESH_ERROR=13
+uint8 CORRUPT_URDF_ERROR=14
+uint8 MISSING_LINK_ERROR=15
+uint8 TF_ERROR=20
+uint8 INVALID_OPERATION=30
+uint8 UNSUPPORTED_OPTIONS=40
+uint8 BUSY=50
 
 # errors that occured during the service
 uint8 error_codes
