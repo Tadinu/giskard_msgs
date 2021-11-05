@@ -25,6 +25,7 @@ string mesh
 # Needs to comply with the URDF definition from here:
 # http://wiki.ros.org/urdf/XML
 string urdf
+
 # Only used if type==URDF_BODY, otherwise ignored.
 # Optional, can be left empty.
 # If not empty, this will interpreted as a ROS topic over which 

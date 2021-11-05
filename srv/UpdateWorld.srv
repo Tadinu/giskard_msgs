@@ -3,24 +3,21 @@
 # Some constants to fill the field operation
 uint8 UNDEFINED=0
 
-# Add a new body to the world. If a body with the same name is already present, 
-# an error will be thrown.
+# Adds body to world at 'pose' and attaches it to 'parent_link'. 
+# If 'parent_link' is not set, it will be attached to the root link of the world, e.g. map.
 uint8 ADD=1
 
-# Remove a body from the world. If no body with that name exists, an error will
-# be thrown.
+# Remove 'body.name' from the world.
 uint8 REMOVE=2
 
-# Alter the properties of an existing world body. If no body with that name exists,
-# an error will be thrown.
-uint8 ALTER=3
-
-# Remove all known bodies from the world. The robot will remain. This operation ignores
-# the world body specified in the body field of the request.
+# Clears the world and reloads the cached robot from the parameter server.
 uint8 REMOVE_ALL=4
 
-# detach object from robot and spawn it into the world.
-# everything but the name in body is being ignored
+# If 'body.name' doesn't exist: calls ADD.
+# If 'body.name' exists: attaches body to 'parent_link'.
+uint8 ATTACH=6
+
+# If 'body.name' exists: sets 'parent_link' to root link of the world, e.g. map, and calls ATTACH.
 uint8 DETACH=5
 
 # Type of operation that shall be performed on the world representation
@@ -33,13 +30,10 @@ float64 timeout
 # Description of the body that shall be added to/removed from/altered within the world.
 giskard_msgs/WorldBody body
 
-# Flag that specifies whether the body shall be rigidly attached to an existing 
-# link of the robot
-bool rigidly_attached
+# Name of any link known to the world.
+string parent_link
 
-# Pose of the body in the world. TF will be used to resolve the header information.
-# Note: If the body shall be rigidly attached to the robot, then the frame_id from 
-# the header of this PoseStampled must be the name of a link of the robot. 
+# Pose where new bodies will be spawned.
 geometry_msgs/PoseStamped pose
 ---
 # Response
@@ -58,7 +52,7 @@ uint8 INVALID_OPERATION=30
 uint8 UNSUPPORTED_OPTIONS=40
 uint8 BUSY=50
 
-# errors that occured during the service
+# errors that occurred during the service
 uint8 error_codes
 
 # optional additional error message
