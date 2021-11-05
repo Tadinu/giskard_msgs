@@ -8,9 +8,10 @@ uint8 UNDEFINED=0
 uint8 ADD=1
 
 # Remove 'body.name' from the world.
+# Will also remove attached objects.
 uint8 REMOVE=2
 
-# Clears the world and reloads the cached robot from the parameter server.
+# Clears the world and reloads the robot cached from the parameter server.
 uint8 REMOVE_ALL=4
 
 # If 'body.name' doesn't exist: calls ADD.
