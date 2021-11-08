@@ -33,3 +33,6 @@ string urdf
 # contain the current state of all the movable joints described
 # in the urdf.
 string joint_state_topic
+
+# If this is set, Giskard will use this frame to track localization of the object.
+string tf_root_link_name
