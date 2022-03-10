@@ -9,10 +9,6 @@ uint8 URDF_BODY=3
 # The type of body that is represented
 uint8 type
 
-# The name with which the body shall be addressed in the world
-# Note: needs to be unique. If the name is already taken, an error will be returned
-string name
-
 # Only used if type==PRIMITIVE_BODY, otherwise ignored.
 shape_msgs/SolidPrimitive shape
 
@@ -34,3 +30,5 @@ string urdf
 # in the urdf.
 string joint_state_topic
 
+# If this is set, Giskard will use this frame to track localization of the object.
+string tf_root_link_name

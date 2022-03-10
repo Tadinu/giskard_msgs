@@ -1,55 +1,58 @@
 # Request
 
+# operations:
 # Some constants to fill the field operation
 uint8 UNDEFINED=0
 
 # Adds body to world at 'pose' and attaches it to 'parent_link'. 
 # If 'parent_link' is not set, it will be attached to the root link of the world, e.g. map.
-# add group of name 'body.name'
+# Adds group of name 'group_name'
 uint8 ADD=1
 
-# Remove group named 'body.name' from the world.
-# Will also remove attached objects.
+# Remove group named 'group_name' from the world.
+# This will remove child groups as well!
 uint8 REMOVE=2
 
 # Clears the world and reloads the robot cached from the parameter server.
 uint8 REMOVE_ALL=4
 
-# If 'body.name' doesn't exist: calls ADD.
-# If 'body.name' exists: attaches body to 'parent_link'.
+# Case 1: 'group_name' doesn't exist: ADDs 'body' and then calls case 2.
+# Case 2: 'group_name' exists: attaches body to 'parent_link' and ignores 'body.
 uint8 ATTACH=6
 
-# If 'body.name' exists: sets 'parent_link' to root link of the world, e.g. map, and calls ATTACH.
+# If 'group_name' exists: sets 'parent_link' to root link of the world.
+# Equivalent to calling ATTACH with 'group_name' = root link of world
 uint8 DETACH=5
 
 # Type of operation that shall be performed on the world representation
 uint8 operation
+#-------------------------
 
-# new behavior! you can't modify world during planning and make two changes at the same time
-# If the request didn't get accepted during this time, it will be rejected and BUSY is returned.
-# This will happen if Giskard is planning/executing, while the service is being called.
+# Will reject service calls with 'error_code' = 'BUSY', if Giskard is planning or processing another update.
+# You can set this timeout to wait that amount of seconds for Giskard to be ready.
 float64 timeout
 
-# Description of the body that shall be added to/removed from/altered within the world.
-# defaults to root link of world
+string group_name
+
 giskard_msgs/WorldBody body
 
-# Name of any link known to the world.
+# Identify any link in the world via group and link name.
+# if group name is empty, it will default to the robot
+# if both are empty, it will default to root link of the world
+string parent_link_group
 string parent_link
 
-# Pose where new bodies will be spawned.
+# Pose where new bodies will be spawned. Pose of root link of the world body relative to parent_link
 geometry_msgs/PoseStamped pose
 
-# If this is set, Giskard will use this frame to track localization of the object.
-string tf_root_link_name
 ---
 # Response
 
 # constants to use as error codes
 uint8 SUCCESS=0
 uint8 ERROR=1
-uint8 MISSING_BODY_ERROR=10
-uint8 DUPLICATE_BODY_ERROR=11
+uint8 GROUP_NOT_FOUND_ERROR=10
+uint8 DUPLICATE_GROUP_ERROR=11
 uint8 CORRUPT_SHAPE_ERROR=12
 uint8 CORRUPT_MESH_ERROR=13
 uint8 CORRUPT_URDF_ERROR=14

@@ -12,7 +12,6 @@ uint8 type
 # enforced minimum distance between the closest points on both surfaces
 float64 distance
 
-
 string group1
 
 string group2
