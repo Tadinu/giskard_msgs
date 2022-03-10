@@ -5,9 +5,10 @@ uint8 UNDEFINED=0
 
 # Adds body to world at 'pose' and attaches it to 'parent_link'. 
 # If 'parent_link' is not set, it will be attached to the root link of the world, e.g. map.
+# add group of name 'body.name'
 uint8 ADD=1
 
-# Remove 'body.name' from the world.
+# Remove group named 'body.name' from the world.
 # Will also remove attached objects.
 uint8 REMOVE=2
 
@@ -24,11 +25,13 @@ uint8 DETACH=5
 # Type of operation that shall be performed on the world representation
 uint8 operation
 
+# new behavior! you can't modify world during planning and make two changes at the same time
 # If the request didn't get accepted during this time, it will be rejected and BUSY is returned.
 # This will happen if Giskard is planning/executing, while the service is being called.
 float64 timeout
 
 # Description of the body that shall be added to/removed from/altered within the world.
+# defaults to root link of world
 giskard_msgs/WorldBody body
 
 # Name of any link known to the world.
@@ -36,6 +39,9 @@ string parent_link
 
 # Pose where new bodies will be spawned.
 geometry_msgs/PoseStamped pose
+
+# If this is set, Giskard will use this frame to track localization of the object.
+string tf_root_link_name
 ---
 # Response
 
