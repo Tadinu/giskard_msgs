@@ -4,10 +4,15 @@
 # Some constants to fill the field operation
 uint8 UNDEFINED=0
 
-# Adds body to world at 'pose' and attaches it to 'parent_link'. 
-# If 'parent_link' is not set, it will be attached to the root link of the world, e.g. map.
-# Adds group of name 'group_name'
+# Adds 'body' to world at 'pose' and attaches it to 'parent_link_group'/'parent_link'. 
+# If 'parent_link_group' AND 'parent_link' are empty, they will default to 'map'
+# If 'parent_link_group' is empty, but 'parent_link' is not, then 'parent_link_group' will default to the robot.
+# Adds group of name 'group_name'.
+# 'parent_link' and 'parent_link_group' are ignored.
 uint8 ADD=1
+
+# if 'group_name' exists: removes the group from whatever it is attached to and attaches it to 'parent_link_group'/'parent_link'.
+uint8 REATTACH=6
 
 # Remove group named 'group_name' from the world.
 # This will remove child groups as well!
@@ -16,12 +21,7 @@ uint8 REMOVE=2
 # Clears the world and reloads the robot cached from the parameter server.
 uint8 REMOVE_ALL=4
 
-# Case 1: 'group_name' doesn't exist: ADDs 'body' and then calls case 2.
-# Case 2: 'group_name' exists: attaches body to 'parent_link' and ignores 'body.
-uint8 ATTACH=6
-
-# If 'group_name' exists: sets 'parent_link' to root link of the world.
-# Equivalent to calling ATTACH with 'group_name' = root link of world
+# Equivalent to REATTACH with 'group_name' = root link of world
 uint8 DETACH=5
 
 # Type of operation that shall be performed on the world representation
@@ -51,12 +51,12 @@ geometry_msgs/PoseStamped pose
 # constants to use as error codes
 uint8 SUCCESS=0
 uint8 ERROR=1
-uint8 GROUP_NOT_FOUND_ERROR=10
+uint8 UNKNOWN_GROUP_ERROR=10
+uint8 UNKNOWN_LINK_ERROR=15
 uint8 DUPLICATE_GROUP_ERROR=11
 uint8 CORRUPT_SHAPE_ERROR=12
 uint8 CORRUPT_MESH_ERROR=13
 uint8 CORRUPT_URDF_ERROR=14
-uint8 MISSING_LINK_ERROR=15
 uint8 TF_ERROR=20
 uint8 INVALID_OPERATION=30
 uint8 UNSUPPORTED_OPTIONS=40
