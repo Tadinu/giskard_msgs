@@ -37,7 +37,7 @@ int64 HARD_CONSTRAINTS_VIOLATED=13 # conflicting hard constraints, probably beca
 
 # world state exceptions
 int64 WORLD_ERROR=20 # if no world error fits
-int64 UNKNOWN_OBJECT=21
+int64 UNKNOWN_GROUP=21
 
 # error during motion problem building phase
 int64 CONSTRAINT_ERROR=30 # if no constraint code fits
