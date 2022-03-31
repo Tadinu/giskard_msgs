@@ -4,18 +4,16 @@
 # Some constants to fill the field operation
 uint8 UNDEFINED=0
 
-# Adds 'body' to world at 'pose' and attaches it to 'parent_link_group'/'parent_link'. 
-# If 'parent_link_group' AND 'parent_link' are empty, they will default to 'map'
-# If 'parent_link_group' is empty, but 'parent_link' is not, then 'parent_link_group' will default to the robot.
-# If 'parent_link_group' is not empty and 'parent_link' is empty, Giskard will use the root link of the group.
+# Adds 'body' to world at 'pose' and attaches it to 'parent_link' of 'parent_link_group'. 
 # Adds group of name 'group_name'.
 uint8 ADD=1
 
-# if 'group_name' exists: removes the group from whatever it is attached to and attaches it to 'parent_link_group'/'parent_link'.
-uint8 REATTACH=6
+# If 'group_name' exists: removes the group from whatever it is attached to and attaches it to 'parent_link_group'/'parent_link'.
+# This operation with 'parent_link_group' and 'parent_link' left empty can be interpreted as detach.
+uint8 UPDATE_PARENT_LINK=10
 
-# overwrite the pose of the root_link of 'group_name'
-uint8 UPDATE_POSE=3
+# Overwrite the pose of the root_link of 'group_name'
+uint8 UPDATE_POSE=11
 
 # Remove group named 'group_name' from the world.
 # This will remove child groups as well!
@@ -23,9 +21,6 @@ uint8 REMOVE=2
 
 # Clears the world and reloads the robot cached from the parameter server.
 uint8 REMOVE_ALL=4
-
-# Equivalent to REATTACH with 'group_name' = root link of world
-uint8 DETACH=5
 
 # Type of operation that shall be performed on the world representation
 uint8 operation
@@ -40,8 +35,13 @@ string group_name
 giskard_msgs/WorldBody body
 
 # Identify any link in the world via group and link name.
-# if group name is empty, it will default to the robot
-# if both are empty, it will default to root link of the world
+# There are some conventions:
+# If parent_link_group == '' and parent_link == '':
+#	root link of world is assumed, usually 'map'
+# If parent_link_group == '' and parent_link != '':
+#	group is assumed to be the robot
+# If parent_link_group != '' and parent_link == '':
+#	root link of group is assumed
 string parent_link_group
 string parent_link
 
