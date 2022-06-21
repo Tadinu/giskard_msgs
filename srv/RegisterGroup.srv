@@ -1,0 +1,13 @@
+string group_name
+
+# parent group name to help search for root_link_name
+string parent_group_name
+string root_link_name
+
+---
+
+uint8 SUCCESS=0
+uint8 DUPLICATE_GROUP_ERROR=1
+uint8 BUSY=2
+
+uint8 error_codes
