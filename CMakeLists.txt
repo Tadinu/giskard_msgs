@@ -17,19 +17,16 @@ set(MSG_DEPS
 set(MSG_FILES
   CollisionEntry.msg
   Constraint.msg
-  JointConstraint.msg
-  CartesianConstraint.msg
-  Controller.msg
   WorldBody.msg
   MoveCmd.msg
  )
 
 set(SRV_FILES
   UpdateWorld.srv
-  GetObjectNames.srv
-  GetObjectInfo.srv
-  UpdateRvizMarkers.srv
-  GetAttachedObjects.srv
+  DyeGroup.srv
+  GetGroupInfo.srv
+  GetGroupNames.srv
+  RegisterGroup.srv
 )
 
 set(ACT_FILES

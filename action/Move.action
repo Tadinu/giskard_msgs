@@ -27,6 +27,7 @@ giskard_msgs/MoveCmd[] cmd_seq
 # definition of possible error code values
 int64 SUCCESS=0
 int64 ERROR=1 # if no code fits
+int64 PREEMPTED=2 # if no code fits
 
 # solver exceptions
 int64 QP_SOLVER_ERROR=10 # if no solver code fits
@@ -36,7 +37,7 @@ int64 HARD_CONSTRAINTS_VIOLATED=13 # conflicting hard constraints, probably beca
 
 # world state exceptions
 int64 WORLD_ERROR=20 # if no world error fits
-int64 UNKNOWN_OBJECT=21
+int64 UNKNOWN_GROUP=21
 
 # error during motion problem building phase
 int64 CONSTRAINT_ERROR=30 # if no constraint code fits
@@ -50,8 +51,15 @@ int64 SHAKING=41 # Planning was stopped because the trajectory contains a shaky 
 int64 UNREACHABLE=42 # if reachability check fails
 
 # errors during execution
-int64 EXECUTION_ERROR=50 # if no execution code fits
-int64 PREEMPTED=51 # goal got cancled via action server interface
+int64 EXECUTION_ERROR=500 # if no execution code fits
+int64 EXECUTION_PREEMPTED=501 # goal got canceled via action server interface
+int64 EXECUTION_TIMEOUT=502 
+int64 EXECUTION_SUCCEEDED_PREMATURELY=503
+int64 FollowJointTrajectory_INVALID_GOAL=510 
+int64 FollowJointTrajectory_INVALID_JOINTS=511 
+int64 FollowJointTrajectory_OLD_HEADER_TIMESTAMP=512 
+int64 FollowJointTrajectory_PATH_TOLERANCE_VIOLATED=513 
+int64 FollowJointTrajectory_GOAL_TOLERANCE_VIOLATED=514 
 
 # error codes and messages for each command
 int64[] error_codes
@@ -65,12 +73,11 @@ trajectory_msgs/JointTrajectory trajectory
 
 # definitions of possible action phases
 int64 UNDEFINED=0
-int64 PLANNING=1
-int64 EXECUTION=2
+int64 PLANNING=2
+int64 EXECUTION=3
+int64 IDLE=1
 
-# cmd that is currenlty being planned
+# cmd that is currently being planned
 int64 cmd_id
 
-# value between 0.0 and 1.0 to report progress 
-# only published during phases EXECUTION
-float64 progress
+int64 state

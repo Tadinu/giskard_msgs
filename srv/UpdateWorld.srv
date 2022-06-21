@@ -1,58 +1,71 @@
 # Request
 
+# operations:
 # Some constants to fill the field operation
 uint8 UNDEFINED=0
 
-# Add a new body to the world. If a body with the same name is already present, 
-# an error will be thrown.
+# Adds 'body' to world at 'pose' and attaches it to 'parent_link' of 'parent_link_group'. 
+# Adds group of name 'group_name'.
 uint8 ADD=1
 
-# Remove a body from the world. If no body with that name exists, an error will
-# be thrown.
+# If 'group_name' exists: removes the group from whatever it is attached to and attaches it to 'parent_link_group'/'parent_link'.
+# This operation with 'parent_link_group' and 'parent_link' left empty can be interpreted as detach.
+uint8 UPDATE_PARENT_LINK=10
+
+# Overwrite the pose of the root_link of 'group_name'
+uint8 UPDATE_POSE=11
+
+# Remove group named 'group_name' from the world.
+# This will remove child groups as well!
 uint8 REMOVE=2
 
-# Alter the properties of an existing world body. If no body with that name exists,
-# an error will be thrown.
-uint8 ALTER=3
-
-# Remove all known bodies from the world. The robot will remain. This operation ignores
-# the world body specified in the body field of the request.
+# Clears the world and reloads the robot cached from the parameter server.
 uint8 REMOVE_ALL=4
-
-# detach object from robot and spawn it into the world.
-# everything but the name in body is being ignored
-uint8 DETACH=5
 
 # Type of operation that shall be performed on the world representation
 uint8 operation
+#-------------------------
 
-# Description of the body that shall be added to/removed from/altered within the world.
+# Will reject service calls with 'error_code' = 'BUSY', if Giskard is planning or processing another update.
+# You can set this timeout to wait that amount of seconds for Giskard to be ready.
+float64 timeout
+
+string group_name
+
 giskard_msgs/WorldBody body
 
-# Flag that specifies whether the body shall be rigidly attached to an existing 
-# link of the robot
-bool rigidly_attached
+# Identify any link in the world via group and link name.
+# There are some conventions:
+# If parent_link_group == '' and parent_link == '':
+#	root link of world is assumed, usually 'map'
+# If parent_link_group == '' and parent_link != '':
+#	group is assumed to be the robot
+# If parent_link_group != '' and parent_link == '':
+#	root link of group is assumed
+string parent_link_group
+string parent_link
 
-# Pose of the body in the world. TF will be used to resolve the header information.
-# Note: If the body shall be rigidly attached to the robot, then the frame_id from 
-# the header of this PoseStampled must be the name of a link of the robot. 
+# Pose where new bodies will be spawned. Pose of root link of the world body relative to parent_link
 geometry_msgs/PoseStamped pose
+
 ---
 # Response
 
 # constants to use as error codes
 uint8 SUCCESS=0
-uint8 MISSING_BODY_ERROR=1
-uint8 DUPLICATE_BODY_ERROR=2
-uint8 CORRUPT_SHAPE_ERROR=3
-uint8 CORRUPT_MESH_ERROR=4
-uint8 CORRUPT_URDF_ERROR=5
-uint8 TF_ERROR=6
-uint8 MISSING_LINK_ERROR=7
-uint8 INVALID_OPERATION=8
-uint8 UNSUPPORTED_OPTIONS=9
+uint8 ERROR=1
+uint8 UNKNOWN_GROUP_ERROR=10
+uint8 UNKNOWN_LINK_ERROR=15
+uint8 DUPLICATE_GROUP_ERROR=11
+uint8 CORRUPT_SHAPE_ERROR=12
+uint8 CORRUPT_MESH_ERROR=13
+uint8 CORRUPT_URDF_ERROR=14
+uint8 TF_ERROR=20
+uint8 INVALID_OPERATION=30
+uint8 UNSUPPORTED_OPTIONS=40
+uint8 BUSY=50
 
-# errors that occured during the service
+# errors that occurred during the service
 uint8 error_codes
 
 # optional additional error message

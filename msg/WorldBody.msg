@@ -9,10 +9,6 @@ uint8 URDF_BODY=3
 # The type of body that is represented
 uint8 type
 
-# The name with which the body shall be addressed in the world
-# Note: needs to be unique. If the name is already taken, an error will be returned
-string name
-
 # Only used if type==PRIMITIVE_BODY, otherwise ignored.
 shape_msgs/SolidPrimitive shape
 
@@ -25,6 +21,7 @@ string mesh
 # Needs to comply with the URDF definition from here:
 # http://wiki.ros.org/urdf/XML
 string urdf
+
 # Only used if type==URDF_BODY, otherwise ignored.
 # Optional, can be left empty.
 # If not empty, this will interpreted as a ROS topic over which 
@@ -32,3 +29,6 @@ string urdf
 # contain the current state of all the movable joints described
 # in the urdf.
 string joint_state_topic
+
+# If this is set, Giskard will use this frame to track localization of the object.
+string tf_root_link_name
