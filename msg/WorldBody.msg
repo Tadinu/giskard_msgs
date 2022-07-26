@@ -22,6 +22,8 @@ string mesh
 # http://wiki.ros.org/urdf/XML
 string urdf
 
+geometry_msgs/Vector3 scale
+
 # Only used if type==URDF_BODY, otherwise ignored.
 # Optional, can be left empty.
 # If not empty, this will interpreted as a ROS topic over which 
