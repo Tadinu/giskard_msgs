@@ -49,6 +49,7 @@ int64 INVALID_GOAL=33
 int64 PLANNING_ERROR=40 # if no planning code fits
 int64 SHAKING=41 # Planning was stopped because the trajectory contains a shaky velocity profile. Detection parameters can be tuned in config file
 int64 UNREACHABLE=42 # if reachability check fails
+int64 SELF_COLLISION_VIOLATED=43 # if reachability check fails
 
 # errors during execution
 int64 EXECUTION_ERROR=500 # if no execution code fits
