@@ -34,6 +34,7 @@ int64 QP_SOLVER_ERROR=10 # if no solver code fits
 int64 MAX_NWSR_REACHED=11 # increasing NWSR in config file might fix this
 int64 OUT_OF_JOINT_LIMITS=12
 int64 HARD_CONSTRAINTS_VIOLATED=13 # conflicting hard constraints, probably because of collision avoidance
+int64 EMPTY_PROBLEM=14
 
 # world state exceptions
 int64 WORLD_ERROR=20 # if no world error fits
